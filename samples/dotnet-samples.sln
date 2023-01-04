@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetDemoTests", "dotnet-demo-tests\DotnetDemoTests.csproj", "{F14FE9D5-1EE1-4755-92C4-E16EBA526F4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetDemo", "dotnet-demo\DotnetDemo.csproj", "{49D06E47-7391-4340-9AB5-481F49583CB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F14FE9D5-1EE1-4755-92C4-E16EBA526F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F14FE9D5-1EE1-4755-92C4-E16EBA526F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F14FE9D5-1EE1-4755-92C4-E16EBA526F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F14FE9D5-1EE1-4755-92C4-E16EBA526F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49D06E47-7391-4340-9AB5-481F49583CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49D06E47-7391-4340-9AB5-481F49583CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49D06E47-7391-4340-9AB5-481F49583CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49D06E47-7391-4340-9AB5-481F49583CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D068D2D8-F778-4018-B21D-714422662A5A}
+	EndGlobalSection
+EndGlobal

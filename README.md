@@ -343,4 +343,16 @@ var hlm = DIContainer.Resolve<HighLevelModule>();
 
 --
 
-## Thank you
+## References
+
+- [DevIQ.com](https://deviq.com/practices/dependency-injection)
+- [NDepend](https://blog.ndepend.com/solid-design-the-dependency-inversion-principle-dip/)
+- [DotnetTricks](https://www.dotnettricks.com/learn/dependencyinjection/understanding-inversion-of-control-dependency-injection-and-service-locator)
+- [GeeksForGeeks](https://www.geeksforgeeks.org/service-locator-pattern/)
+- [DIP in the Wild](https://martinfowler.com/articles/dipInTheWild.html)
+- [EmbeddedArtistry](https://embeddedartistry.com/fieldmanual-terms/dependency-inversion-principle/)
+- [Ploeh blog](https://blog.ploeh.dk/2010/02/03/ServiceLocatorisanAnti-Pattern/)
+
+---
+
+# Thank you
