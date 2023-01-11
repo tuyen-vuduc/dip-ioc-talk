@@ -2,7 +2,20 @@ public interface IPaymentService {
     TxStatus Pay(int amount, string note);
 }
 
-public class PaymentServiceFactory  {
+public class ServiceLocator  {
+    public static IDictionary<Type, Func<object>> typeToFactorMethodMapping
+     = new Dictionary<Type, Func<object>>();
+
+    public static void Register<T>(Func<object> factoryMethod) {
+        typeToFactorMethodMapping[typeof(T)] = factoryMethod;
+    }
+
+    public static T Get<T>() {
+        var factoryMethod = typeToFactorMethodMapping[typeof(T)];
+
+        return (T)factoryMethod?.Invoke();
+    }
+    
     public static PaymentMethod PaymentMethod = PaymentMethod.CreditCard;
 
     public static IPaymentService Create() {
@@ -19,7 +32,7 @@ public class ShopManager {
     private IPaymentService paymentService;
 
     public ShopManager() {
-        paymentService = PaymentServiceFactory.Create();
+        paymentService = ServiceLocator.Get<IPaymentService>();
     }
 
     public bool CheckOut(params ProductItem[] productItems) {

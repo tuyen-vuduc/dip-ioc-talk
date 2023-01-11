@@ -4,11 +4,11 @@ var noOfProducts = 2;
 
 var productItems = CreateProductItems(noOfProducts);
 
-PaymentServiceFactory.PaymentMethod = PaymentMethod.CreditCard;
+ServiceLocator.Register<IPaymentService>(() => new CashPaymentService());
 var shopManager = new ShopManager();
 shopManager.CheckOut(productItems);
 
-PaymentServiceFactory.PaymentMethod = PaymentMethod.Cash;
+ServiceLocator.Register<IPaymentService>(() => new CreditCardPaymentService());
 var shopManager2 = new ShopManager();
 shopManager2.CheckOut(productItems);
 
