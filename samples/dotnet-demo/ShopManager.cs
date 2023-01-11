@@ -3,16 +3,17 @@ public interface IPaymentService {
 }
 
 public class ServiceLocator  {
-    public static IDictionary<Type, Func<object>> typeToFactorMethodMapping
-     = new Dictionary<Type, Func<object>>();
+    public static IDictionary<string, Func<object>> nameToFactoryMethodMapping
+     = new Dictionary<string, Func<object>>();
 
-    public static void Register<T>(Func<object> factoryMethod) {
-        typeToFactorMethodMapping[typeof(T)] = factoryMethod;
+    public static void Register<T>(Func<object> factoryMethod, string? name = null) {
+        name ??= typeof(T).AssemblyQualifiedName;
+        nameToFactoryMethodMapping[name!] = factoryMethod;
     }
 
-    public static T Get<T>() {
-        var factoryMethod = typeToFactorMethodMapping[typeof(T)];
-
+    public static T Get<T>(string? name = null) {
+        name ??= typeof(T).AssemblyQualifiedName;
+        var factoryMethod = nameToFactoryMethodMapping[name];
         return (T)factoryMethod?.Invoke();
     }
     

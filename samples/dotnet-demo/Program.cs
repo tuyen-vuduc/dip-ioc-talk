@@ -4,11 +4,21 @@ var noOfProducts = 2;
 
 var productItems = CreateProductItems(noOfProducts);
 
-ServiceLocator.Register<IPaymentService>(() => new CashPaymentService());
+
+PaymentMethod paymentMethod = PaymentMethod.CreditCard;
+
+ServiceLocator.Register<IPaymentService>(() => new CashPaymentService(), PaymentMethod.Cash.ToString());
+ServiceLocator.Register<IPaymentService>(() => new CreditCardPaymentService(), PaymentMethod.CreditCard.ToString());
+ServiceLocator.Register<IPaymentService>(() => paymentMethod switch {
+    PaymentMethod.CreditCard => ServiceLocator.Get<IPaymentService>(paymentMethod.ToString()),
+    _ => ServiceLocator.Get<IPaymentService>(PaymentMethod.Cash.ToString())
+});
+
+paymentMethod = PaymentMethod.Cash;
 var shopManager = new ShopManager();
 shopManager.CheckOut(productItems);
 
-ServiceLocator.Register<IPaymentService>(() => new CreditCardPaymentService());
+paymentMethod = PaymentMethod.CreditCard;
 var shopManager2 = new ShopManager();
 shopManager2.CheckOut(productItems);
 
