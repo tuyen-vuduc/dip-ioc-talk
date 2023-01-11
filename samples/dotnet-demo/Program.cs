@@ -4,8 +4,13 @@ var noOfProducts = 2;
 
 var productItems = CreateProductItems(noOfProducts);
 
+PaymentServiceFactory.PaymentMethod = PaymentMethod.CreditCard;
 var shopManager = new ShopManager();
 shopManager.CheckOut(productItems);
+
+PaymentServiceFactory.PaymentMethod = PaymentMethod.Cash;
+var shopManager2 = new ShopManager();
+shopManager2.CheckOut(productItems);
 
 ProductItem[] CreateProductItems(int count = 1) {
     if (count <= 0) return Array.Empty<ProductItem>();
